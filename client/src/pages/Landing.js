@@ -54,6 +54,7 @@ function Landing(props) {
         backgroundImage: `url(${backgroundImage})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        filter: "grayscale(100%)",
       }}
     >
       <Navbar showModal={showModal} setShowModal={setShowModal} />
@@ -62,16 +63,7 @@ function Landing(props) {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <h2>Login</h2>
             <p>Choose a login method:</p>
-            <button
-              onClick={() => console.log("Google login clicked")}
-              className="google-login"
-            >
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                alt="Google icon"
-              />
-              Google Login
-            </button>
+
             <form>
               <input
                 type="text"
@@ -83,6 +75,16 @@ function Landing(props) {
                 placeholder="Password"
                 className="form-input"
               />
+              <button
+                onClick={() => console.log("Google login clicked")}
+                className="google-login"
+              >
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                  alt="Google icon"
+                />
+                Google Login
+              </button>
               <button type="submit" className="submit-button">
                 Login
               </button>
