@@ -104,12 +104,6 @@ function Searchbox(props) {
     <div
       className="searchbox"
       style={{ color: "whitesmoke", transition: "transform 0.3s ease" }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.2)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-      }}
     >
       <h3>Pick your city</h3>
       <input

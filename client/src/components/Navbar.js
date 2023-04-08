@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Navbar() {
+export default function Navbar({ showModal, setShowModal }) {
   return (
     <div>
       <nav className="navbar navbar-expand-sm">
@@ -27,7 +27,6 @@ export default function Navbar() {
               color: "wheat",
               backgroundColor: "rgba(0, 0, 0, 0.5)",
               marginLeft: 120,
-              // display: "inline-block",
               borderRadius: 10,
               padding: 10,
             }}
@@ -64,7 +63,11 @@ export default function Navbar() {
                 Contact
               </a>
             </li>
-            <button className="buttoned" style={{ marginLeft: 30 }}>
+            <button
+              className="buttoned"
+              style={{ marginLeft: 30 }}
+              onClick={() => setShowModal(true)}
+            >
               Login
             </button>
           </ul>

@@ -29,7 +29,7 @@ function Landing(props) {
   React.useEffect(() => {
     const intervalId = setInterval(() => {
       fetchNewWallpaper();
-    }, 10000);
+    }, 30000);
 
     return () => clearInterval(intervalId);
   }, [fetchNewWallpaper]);
@@ -38,6 +38,15 @@ function Landing(props) {
     fetchNewWallpaper();
   };
 
+  const [showModal, setShowModal] = React.useState(false);
+  const handleLoginClick = () => {
+    setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+  console.log(showModal);
   return (
     <div
       style={{
@@ -47,7 +56,40 @@ function Landing(props) {
         backgroundSize: "cover",
       }}
     >
-      <Navbar />
+      <Navbar showModal={showModal} setShowModal={setShowModal} />
+      {showModal && (
+        <div className="modal" onClick={handleModalClose}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <h2>Login</h2>
+            <p>Choose a login method:</p>
+            <button
+              onClick={() => console.log("Google login clicked")}
+              className="google-login"
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                alt="Google icon"
+              />
+              Google Login
+            </button>
+            <form>
+              <input
+                type="text"
+                placeholder="Username"
+                className="form-input"
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                className="form-input"
+              />
+              <button type="submit" className="submit-button">
+                Login
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
 
       <div style={{ display: "flex", margin: "auto", marginTop: "10%" }}>
         <div
