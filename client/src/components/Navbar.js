@@ -1,6 +1,11 @@
 import React from "react";
 
 export default function Navbar() {
+
+  function login() {
+    console.log("login");
+    window.location.href = "http://localhost:5000/auth/google";
+  }
   return (
     <div>
       <nav class="navbar navbar-expand-sm">
@@ -29,7 +34,7 @@ export default function Navbar() {
                 Contact
               </a>
             </li>
-            <button class="buttoned" style={{ marginLeft: 30 }}>
+            <button class="buttoned" style={{ marginLeft: 30 }} onClick={login}>
               Login
             </button>
           </ul>
