@@ -1,6 +1,14 @@
 import React from "react";
 
+export default function Navbar() {
+
+  function login() {
+    console.log("login");
+    window.location.href = "http://localhost:5000/auth/google";
+  }
+
 export default function Navbar({ showModal, setShowModal }) {
+
   return (
     <div>
       <nav className="navbar navbar-expand-sm">
@@ -63,11 +71,15 @@ export default function Navbar({ showModal, setShowModal }) {
                 Contact
               </a>
             </li>
+
+            <button class="buttoned" style={{ marginLeft: 30 }} onClick={login}>
+
             <button
               className="buttoned"
               style={{ marginLeft: 30 }}
               onClick={() => setShowModal(true)}
             >
+
               Login
             </button>
           </ul>
